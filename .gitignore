@@ -1,0 +1,5 @@
+*.swp
+config.h
+slstatus
+components
+*.o
