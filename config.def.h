@@ -67,6 +67,8 @@ static const struct arg args[] = {
 	/* function format          argument */
 	/* { vol_perc, "vol: %s%% |", "/dev/mixer" }, */
 	/* { wifi_perc, " fi: %s%% |", "wl" }, */
+	{ uptime, " up: %s |" },
+	{ disk_free, " free: %s |", "/" },
 	{ cpu_perc, " cpu: %s%% |" },
 	{ ram_perc, " ram: %s%% |" },
 	{ battery_perc, " bat: %s%% |", "BAT0" },
