@@ -5,13 +5,14 @@
 #include <sys/ioctl.h>
 #include <unistd.h>
 
+#include "../slstatus.h"
 #include "../util.h"
 
-#if defined(__OpenBSD__)
-	#include <sys/queue.h>
+#if defined(__OpenBSD__) | defined(__FreeBSD__)
 	#include <poll.h>
 	#include <sndio.h>
 	#include <stdlib.h>
+	#include <sys/queue.h>
 
 	struct control {
 		LIST_ENTRY(control)	next;
@@ -88,6 +89,8 @@
 			if (c->addr == addr)
 				break;
 		}
+		if (c == NULL)
+			return;
 		c->val = val;
 	}
 
@@ -161,6 +164,7 @@
 				if (sioctl_revents(hdl, pfds) & POLLHUP) {
 					warn("sndio: disconnected");
 					cleanup();
+					initialized = 0;
 					return NULL;
 				}
 			}
