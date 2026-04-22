@@ -68,8 +68,9 @@ static const struct arg args[] = {
 	/* function format          argument */
 	/* { vol_perc, "vol: %s%% |", "/dev/mixer" }, */
 	/* { wifi_perc, " fi: %s%% |", "wl" }, */
-	{ disk_free, " free: %s |", "/" },
 	{ run_command, " up: %s |", "uptime | awk -F'( |,|:)+' '{if ($6) { printf \"%sd %sh %sm\", $6, $8, $9 } else { printf \"%sh %m\" }}'" },
+	{ disk_free, " / %s |", "/" },
+	{ disk_free, " ~ %s |", "/home/michael/" },
 	{ cpu_perc, " cpu: %s%% |" },
 	{ ram_perc, " ram: %s%% |" },
 	{ battery_perc, " bat: %s%% |", "BAT0" },
