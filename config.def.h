@@ -72,6 +72,7 @@ static const struct arg args[] = {
 	{ run_command, " up: %s |", "awk '{ printf(\"%d:%02d:%02d:%02d\",($1/60/60/24),($1/60/60%24),($1/60%60),($1%60)) }' /proc/uptime" },
 	{ disk_free, " / %s |", "/" },
 	{ disk_free, " ~ %s |", "/home/michael/" },
+	{ temp, " °%s |", "/sys/class/thermal/thermal_zone9/temp" },
 	{ cpu_perc, " cpu: %2s%% |" },
 	{ ram_perc, " ram: %2s%% |" },
 	{ battery_perc, " bat: %s%% |", "BAT0" },
